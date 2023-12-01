@@ -20,4 +20,16 @@ stage('Deploy') {
   }
 }
 }
+  post {
+    //the conditions will go here after the build is done
+      post {
+        //inevitable action
+        echo 'Post build condition running'
+      }
+      failure {
+        //this action will happen only if the build has failed
+        echo 'Post action if build has failed...'
+      }
+  }
+  
 }
