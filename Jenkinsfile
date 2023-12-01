@@ -1,23 +1,21 @@
 flag-true
 pipeline {
   agent any
+  tools {
+    maven 'MAVEN'
+  }
   environment {
     NEW_VERSION = '1.3.0'
   }
   stages {
     stage('Build') {
       steps {
-        echo 'Building..'
+        echo "Building Project ${NEW_VERSION}"
         // Here you can define commands for your build
+        sh "nvm install"
     }
 }
 stage('Test') {
-  steps {
-      when {
-        expression {
-          flag=false
-        }
-      }
     echo 'Testing project...'
     // Here you can define commands for your tests
   }
