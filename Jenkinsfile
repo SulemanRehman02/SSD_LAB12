@@ -22,7 +22,7 @@ stage('Deploy') {
 }
   post {
     //the conditions will go here after the build is done
-      post {
+      always {
         //inevitable action
         echo 'Post build condition running'
       }
